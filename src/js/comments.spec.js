@@ -20,6 +20,8 @@ describe( 'Comments', () => {
       expect(json.length).toEqual(0)
       expect(fetch).toHaveBeenCalledTimes(1);
 		});
+
+    // TODO - Test for fail consitions
 	});
 
   describe( 'renderComments', () => {
@@ -30,16 +32,19 @@ describe( 'Comments', () => {
         "likes": 33
       }];
       document.body.innerHTML = `
+        <h2 class="comments-header__title"><span></span></h2>
         <ul class="comments-list"></ul>
       `;
 
       const comments = new Comments({listSelector: '.comments-list', apiPath: 'foo'});
       comments.renderComments(json)
 
+      const counter = document.querySelector('.comments-header__title span');
       const name = document.querySelector('.comment__name');
       const body = document.querySelector('.comment__body');
       const likes = document.querySelector('.comment__likes');
 
+      expect(counter.innerHTML).toBe('1')
       expect(name.innerHTML).toBe('Dawud Esparza')
       expect(body.innerHTML).toBe('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
       expect(likes.innerHTML).toBe('33 Likes')
@@ -69,7 +74,7 @@ describe( 'Comments', () => {
       document.body.innerHTML = `
         <label class="comments-header__sort" >
           Sort
-          <button>Likes</button>
+          <button class="comments-header__button">Likes</button>
         </label>
       `;
 

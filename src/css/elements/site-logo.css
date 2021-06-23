@@ -1,0 +1,14 @@
+.site-logo {
+	height: 26px;
+	padding: 1rem 0;
+	width: 160px;
+}
+
+@media (min-width: 768px) {
+	.site-logo {
+		height: 31px;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+		width: 190px;
+	}
+}

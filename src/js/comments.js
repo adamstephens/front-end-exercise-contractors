@@ -77,7 +77,7 @@ class Comments {
 	 * Clear comments list
 	 */
 	clearComments() {
-		this.$listElement.innerHTML = "";
+		this.$listElement.innerHTML = ""; 
 	}
 
 	/**
